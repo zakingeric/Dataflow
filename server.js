@@ -15,7 +15,7 @@ const db       = require('./config/database');
 
 // ── Route imports ──
 const authRoutes        = require('./routes/auth');
-const userRoutes        = require('./routes/users');
+//const userRoutes        = require('./routes/users');
 const walletRoutes      = require('./routes/wallet');
 //const dataRoutes        = require('./routes/data');
 //const airtimeRoutes     = require('./routes/airtime');
