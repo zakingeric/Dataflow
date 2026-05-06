@@ -10,9 +10,8 @@ const helmet   = require('helmet');
 const morgan   = require('morgan');
 const rateLimit = require('express-rate-limit');
 
-const logger   = require('./config/logger');
-const db       = require('./config/database');
-
+const logger = console;
+const db = { query: async () => true };
 // ── Route imports ──
 const authRoutes        = require('./routes/auth');
 //const userRoutes        = require('./routes/users');
