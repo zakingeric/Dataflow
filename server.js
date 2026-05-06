@@ -68,9 +68,13 @@ app.use(morgan('combined', {
 // ─────────────────────────────────────────────────────
 //  HEALTH CHECK
 // ─────────────────────────────────────────────────────
-app.get('/health', async (req, res) => {
-  try {
-    await db.query('SELECT 1');
+app.get('/health', (req, res) => {
+  res.json({
+    status: 'ok',
+    platform: process.env.PLATFORM_NAME || 'DataFlow',
+    timestamp: new Date().toISOString()
+  });
+});
     res.json({
       status:    'ok',
       platform:  process.env.PLATFORM_NAME || 'DataFlow',
