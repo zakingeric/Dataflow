@@ -22,7 +22,7 @@ const dataRoutes        = require('./routes/data');
 //const tvRoutes          = require('./routes/tv');
 //const examRoutes        = require('./routes/exam');
 //const transactionRoutes = require('./routes/transactions');
-const webhookRoutes     = require('./routes/webhooks');
+const webhookRoutes     = require('./routes/webhook');
 const adminRoutes       = require('./routes/admin');
 
 const app  = express();
@@ -86,7 +86,7 @@ app.use('/api/data',         dataRoutes);
 //app.use('/api/tv',           tvRoutes);
 //app.use('/api/exam',         examRoutes);
 //app.use('/api/transactions',  transactionRoutes);
-app.use('/api/webhooks',      webhookRoutes);
+app.use('/api/webhook',      webhookRoutes);
 app.use('/api/admin',         adminRoutes);
 
 // ─────────────────────────────────────────────────────
