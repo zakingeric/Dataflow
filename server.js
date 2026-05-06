@@ -34,7 +34,7 @@ const PORT = process.env.PORT || 3000;
 app.use(helmet());
 
 app.use(cors({
-  origin: process.env.FRONTEND_URL || 'https://dataflow-ng.netlify.app/',
+  origin: process.env.FRONTEND_URL || 'https://dataflow-ng.netlify.app',
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization'],
@@ -88,7 +88,7 @@ app.get('/health', async (req, res) => {
 app.use('/api/auth',         authRoutes);
 //app.use('/api/users',        userRoutes);
 app.use('/api/wallet',       walletRoutes);
-app.use('/api/data',         dataRoutes);
+//app.use('/api/data',         dataRoutes);
 //app.use('/api/airtime',      airtimeRoutes);
 //app.use('/api/bills',        billsRoutes);
 //app.use('/api/tv',           tvRoutes);
