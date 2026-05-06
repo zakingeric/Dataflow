@@ -86,7 +86,7 @@ app.use('/api/data',         dataRoutes);
 //app.use('/api/tv',           tvRoutes);
 //app.use('/api/exam',         examRoutes);
 //app.use('/api/transactions',  transactionRoutes);
-app.use('/api/webhook',      webhooksRoutes);
+app.use('/api/webhooks',      webhookRoutes);
 app.use('/api/admin',         adminRoutes);
 
 // ─────────────────────────────────────────────────────
