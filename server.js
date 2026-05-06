@@ -17,7 +17,7 @@ const db       = require('./config/database');
 const authRoutes        = require('./routes/auth');
 //const userRoutes        = require('./routes/users');
 const walletRoutes      = require('./routes/wallet');
-//const dataRoutes        = require('./routes/data');
+const dataRoutes        = require('./routes/data');
 //const airtimeRoutes     = require('./routes/airtime');
 //const billsRoutes       = require('./routes/bills');
 //const tvRoutes          = require('./routes/tv');
@@ -91,8 +91,8 @@ app.get('/health', (req, res) => {
 // ─────────────────────────────────────────────────────
 app.use('/api/auth',         authRoutes);
 //app.use('/api/users',        userRoutes);
-app.use('/api/wallet',       walletRoutes);
-//app.use('/api/data',         dataRoutes);
+app.use('/api/wallet',       walletRoutes); 
+app.use('/api/data',         dataRoutes);
 //app.use('/api/airtime',      airtimeRoutes);
 //app.use('/api/bills',        billsRoutes);
 //app.use('/api/tv',           tvRoutes);
