@@ -72,20 +72,9 @@ app.get('/health', (req, res) => {
   res.json({
     status: 'ok',
     platform: process.env.PLATFORM_NAME || 'DataFlow',
-    timestamp: new Date().toISOString()
+    timestamp: new Date().toISOString(),
   });
 });
-    res.json({
-      status:    'ok',
-      platform:  process.env.PLATFORM_NAME || 'DataFlow',
-      timestamp: new Date().toISOString(),
-      database:  'connected',
-    });
-  } catch (err) {
-    res.status(503).json({ status: 'error', database: 'disconnected' });
-  }
-});
-
 // ─────────────────────────────────────────────────────
 //  API ROUTES
 // ─────────────────────────────────────────────────────
