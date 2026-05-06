@@ -8,7 +8,7 @@ const rateLimit = require('express-rate-limit');
 
 const db        = require('../config/database');
 const logger    = require('../config/logger');
-const { protect } = require('../middleware/auth');
+const { protect } = require('../routes/auth');
 
 const router = express.Router();
 
