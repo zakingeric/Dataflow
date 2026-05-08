@@ -55,63 +55,6 @@ router.post(
   async (req, res) => {
     try {
       const errors = validationResult(req);
-// routes/data.js — Buy data bundles
-const express = require('express');
-const { body, validationResult } = require('express-validator');
-
-const db = require('../config/database');
-const logger = require('../config/logger');
-
-// IMPORTANT: middleware imports must exist correctly
-const { protect, serviceEnabled } = require('../middleware/serviceEnabled');
-
-const walletService = require('../services/walletService');
-const vtuService = require('../services/vtuService');
-const emailService = require('../services/emailService');
-
-const router = express.Router();
-
-// Protect all routes first
-router.use(protect);
-
-// Feature toggle middleware
-router.use(serviceEnabled('data_service_active'));
-
-// ─────────────────────────────────────────
-// GET /api/data/plans
-// ─────────────────────────────────────────
-router.get('/plans', async (req, res) => {
-  try {
-    const { network } = req.query;
-
-    const query = network
-      ? 'SELECT * FROM data_plans WHERE network = $1 AND is_active = true ORDER BY sell_price'
-      : 'SELECT * FROM data_plans WHERE is_active = true ORDER BY network, sell_price';
-
-    const params = network ? [network.toLowerCase()] : [];
-
-    const { rows } = await db.query(query, params);
-
-    res.json({ success: true, plans: rows });
-  } catch (err) {
-    logger.error(err.message);
-    res.status(500).json({ success: false, message: 'Could not fetch plans' });
-  }
-});
-
-// ─────────────────────────────────────────
-// POST /api/data/buy
-// ─────────────────────────────────────────
-router.post(
-  '/buy',
-  [
-    body('plan_id').notEmpty(),
-    body('phone').matches(/^0[789][01]\d{8}$/),
-    body('payment_method').isIn(['wallet', 'card']),
-  ],
-  async (req, res) => {
-    try {
-      const errors = validationResult(req);
       if (!errors.isEmpty()) {
         return res.status(400).json({ success: false, errors: errors.array() });
       }
