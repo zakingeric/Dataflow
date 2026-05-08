@@ -1,11 +1,10 @@
-module.exports = function serviceEnabled(flag) {
+function serviceEnabled(feature) {
   return (req, res, next) => {
-    if (!process.env[flag.toUpperCase()]) {
-      return res.status(503).json({
-        success: false,
-        message: 'Service disabled'
-      });
-    }
-    next();
+    // temporary allow all (or connect DB later)
+    return next();
   };
+}
+
+module.exports = {
+  serviceEnabled
 };
